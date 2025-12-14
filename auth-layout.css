@@ -1,0 +1,84 @@
+/* Fondo y tarjetas de autenticación */
+.auth-bg {
+    background: linear-gradient(135deg, #1a237e, #3949ab);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-header {
+    text-align: center;
+    color: #fff;
+    padding: 20px 10px 10px;
+}
+
+.auth-header h1 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+.auth-header p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.auth-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px 22px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.auth-card h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #283593;
+}
+
+.auth-subtitle {
+    margin: 0 0 15px;
+    font-size: 13px;
+    color: #555;
+}
+
+.auth-link {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.auth-link a {
+    color: #283593;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+.auth-separator {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+.auth-hint {
+    font-size: 12px;
+    color: #555;
+    margin: 0 0 12px 18px;
+    padding: 0;
+}

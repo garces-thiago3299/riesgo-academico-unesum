@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Alertas tempranas – Universe Unesum</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="app-layout.css">
+</head>
+<body>
+<div class="topbar">
+  <div>Módulo de riesgo académico</div>
+  <div>
+    <a href="index.html">Volver al panel</a>
+    <a href="#" onclick="cerrarSesion(); return false;">Cerrar sesión</a>
+  </div>
+</div>
+
+<header>
+  <h1>Alertas tempranas de deserción</h1>
+  <p>Registra datos académicos y visualiza el riesgo por estudiante.</p>
+</header>
+
+<main>
+  <div class="profile-layout">
+    <!-- Perfil lateral opcional -->
+    <aside>
+      <div class="profile-card" id="profile-card">
+        <div class="profile-avatar">👤</div>
+        <button class="profile-upload-btn" type="button">Subir foto</button>
+        <div class="profile-name" id="profile-nombre">Usuario</div>
+        <div class="profile-line" id="profile-id"></div>
+        <div class="profile-line" id="profile-email"></div>
+        <div class="profile-career">CARRERA: Universe Unesum</div>
+        <div class="profile-line" id="profile-rol"></div>
+      </div>
+    </aside>
+
+    <!-- Contenido principal: formulario + dashboard -->
+    <section>
+      <div class="layout">
+        <!-- Formulario y semáforo -->
+        <div>
+          <div class="card">
+            <h2>Registro de datos del estudiante</h2>
+            <small>Asistencia, promedio y actividades no entregadas.</small>
+            <form id="form-estudiante">
+              <label>Nombre
+                <input type="text" id="nombre" required>
+              </label>
+              <label>Curso / Sección
+                <input type="text" id="curso" placeholder="Ej: 3ro A">
+              </label>
+              <label>Asistencia (%)
+                <input type="number" id="asistencia" min="0" max="100" required>
+              </label>
+              <label>Promedio (sobre 20)
+                <input type="number" id="promedio" min="0" max="20" step="0.1" required>
+              </label>
+              <label>Actividades no entregadas
+                <input type="number" id="noEntregadas" min="0" required>
+              </label>
+              <button type="submit">Calcular riesgo y guardar</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Semáforo de riesgo</h2>
+            <div class="semaforo-contenedor">
+              <div class="semaforo">
+                <div id="luz-roja" class="luz"></div>
+                <div id="luz-amarilla" class="luz"></div>
+                <div id="luz-verde" class="luz"></div>
+              </div>
+              <div>
+                <p id="nivel-riesgo-texto"><strong>Nivel de riesgo:</strong> —</p>
+                <p id="sugerencia" class="sugerencia">
+                  Registra un estudiante para ver su nivel de riesgo y sugerencias de acompañamiento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla + KPIs -->
+        <div>
+          <div class="card">
+            <h2>Estudiantes registrados</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Curso</th>
+                  <th>Asistencia</th>
+                  <th>Promedio</th>
+                  <th>No entregadas</th>
+                  <th>Riesgo</th>
+                  <th>Ver</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-estudiantes"></tbody>
+            </table>
+          </div>
+
+          <div class="card">
+            <h2>Indicadores de riesgo</h2>
+            <div class="dashboard">
+              <div class="kpi">
+                <span class="label">Riesgo alto</span>
+                <span class="value" id="kpi-alto">0</span>
+              </div>
+              <div class="kpi">
+                <span class="label">Riesgo medio</span>
+                <span class="value" id="kpi-medio">0</span>
+              </div>
+              <div class="kpi">
+                <span class="label">Riesgo bajo</span>
+                <span class="value" id="kpi-bajo">0</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  Módulo de monitoreo académico y alertas tempranas – Universe Unesum.
+</footer>
+
+<script src="auth.js"></script>
+<script src="app-tareas.js"></script>
+<script src="iavoy.js"></script>
+</body>
+</html>

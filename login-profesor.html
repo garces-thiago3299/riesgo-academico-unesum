@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal Docente – Universe Unesum</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="auth-layout.css">
+<script src="auth.js"></script>
+</head>
+<body class="auth-bg">
+<header class="auth-header">
+  <h1>Universe Unesum</h1>
+  <p>Portal de Docentes</p>
+</header>
+
+<main class="auth-main">
+  <div class="auth-card">
+    <h2>Iniciar sesión como profesor</h2>
+    <p class="auth-subtitle">
+      Pongan esta cosa de las materias nomas asi es mas facil :V (borren cuando editen esta cosa).
+    </p>
+    <ul class="auth-hint">
+      <li>matematicas / matematicas</li>
+      <li>lenguaje / lenguaje</li>
+      <li>ingles / ingles</li>
+      <li>programacion / programacion</li>
+      <li>sistemaweb / sistemaweb</li>
+    </ul>
+
+    <form id="form-login-profesor">
+      <label>Usuario (nombre de la materia)
+        <input type="text" id="prof-user" required>
+      </label>
+      <label>Contraseña
+        <input type="password" id="prof-pass" required>
+      </label>
+      <button type="submit">Entrar al portal docente</button>
+    </form>
+
+    <p class="auth-link">
+      ¿Eres estudiante? <a href="login.html">Ir al iniciar sesion normal</a>
+    </p>
+  </div>
+</main>
+
+<footer>
+  © 2025 Universe Unesum – Portal Académico
+</footer>
+
+<script src="auth.js"></script>
+</body>
+</html>

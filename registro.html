@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de estudiante</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="auth-layout.css">
+
+</head>
+<body>
+<header>
+  <h1>Registro de estudiante</h1>
+  <p>Crea tu cuenta usando tu cédula, nombre y una contraseña.</p>
+</header>
+
+<main>
+  <div class="layout-materias">
+    <div class="card">
+      <h2>Crear cuenta</h2>
+      <form id="form-registro">
+        <label>Cédula
+          <input type="text" id="cedula-reg" required>
+        </label>
+        <label>Nombre completo
+          <input type="text" id="nombre-reg" required>
+        </label>
+        <label>Contraseña
+          <input type="password" id="pass-reg" required>
+        </label>
+        <button type="submit">Registrarme</button>
+      </form>
+      <p style="margin-top:10px;font-size:13px;">
+        ¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Datos de estudiante almacenados localmente en este navegador.
+</footer>
+
+<script src="auth.js"></script>
+</body>
+</html>
