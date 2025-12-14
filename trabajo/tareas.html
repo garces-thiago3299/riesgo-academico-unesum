@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tareas – Universe Unesum</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="app-layout.css">
+</head>
+<body>
+<div class="topbar">
+  <div id="topbar-title">Tareas</div>
+  <div>
+    <a href="index.html">Volver al panel</a>
+    <a href="#" onclick="cerrarSesion(); return false;">Cerrar sesión</a>
+  </div>
+</div>
+
+<header>
+  <h1 id="tareas-materia-titulo">Tareas de la materia</h1>
+  <p id="tareas-subtitulo">Gestión de tareas tipo Classroom por materia.</p>
+</header>
+
+<main>
+  <div class="profile-layout">
+    <!-- Perfil lateral -->
+    <aside>
+      <div class="profile-card" id="profile-card">
+        <div class="profile-avatar">👤</div>
+        <button class="profile-upload-btn" type="button">Subir foto</button>
+        <div class="profile-name" id="profile-nombre">Usuario</div>
+        <div class="profile-line" id="profile-id"></div>
+        <div class="profile-line" id="profile-email"></div>
+        <div class="profile-career">CARRERA: Universe Unesum</div>
+        <div class="profile-line" id="profile-rol"></div>
+      </div>
+    </aside>
+
+    <!-- Contenido principal + chat IA -->
+    <section>
+      <div class="layout">
+        <!-- COLUMNA IZQUIERDA: profesor / estudiante -->
+        <div>
+          <!-- Vista PROFESOR: crear y editar tareas -->
+          <div id="profesor-panel" class="card" style="display:none;">
+            <h2 id="profesor-tutor-titulo">Tutor de [Materia]</h2>
+            <small>Crea y edita tareas para todos los estudiantes de esta materia.</small>
+
+            <form id="form-nueva-tarea">
+              <label>Título de la tarea
+                <input type="text" id="tarea-titulo" required>
+              </label>
+              <label>Descripción
+                <input type="text" id="tarea-descripcion" placeholder="Indicaciones breves">
+              </label>
+              <label>Fecha de publicación
+                <input type="date" id="tarea-fecha-publicacion" required>
+              </label>
+              <label>Fecha límite de entrega
+                <input type="date" id="tarea-fecha-limite" required>
+              </label>
+              <label>Hora límite
+                <input type="time" id="tarea-hora-limite" required>
+              </label>
+              <button type="submit">Publicar tarea</button>
+            </form>
+          </div>
+
+          <!-- Lista de tareas -->
+          <div class="card">
+            <h2>Lista de tareas</h2>
+            <small>Haz clic en una tarea para ver detalles, enviar entrega o revisar envíos.</small>
+            <table>
+              <thead>
+                <tr>
+                  <th>Título</th>
+                  <th>Publicación</th>
+                  <th>Entrega límite</th>
+                  <th>Estado</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-tareas"></tbody>
+            </table>
+          </div>
+
+          <!-- Detalle de tarea -->
+          <div class="card" id="detalle-tarea-card" style="display:none;">
+            <h2 id="detalle-titulo">Detalle de tarea</h2>
+            <p id="detalle-descripcion"></p>
+            <p id="detalle-fechas"></p>
+
+            <!-- ESTUDIANTE -->
+            <div id="detalle-estudiante" style="display:none;">
+              <h3>Mi entrega</h3>
+              <form id="form-entrega">
+                <label>Texto de la entrega (o enlace al archivo)
+                  <input type="text" id="entrega-texto" placeholder="Ej: enlace a Drive o respuesta">
+                </label>
+                <button type="submit">Entregar / actualizar</button>
+              </form>
+              <p id="estado-mi-entrega"></p>
+
+              <h3>Asistencia a esta clase</h3>
+              <form id="form-asistencia">
+                <label>
+                  <input type="checkbox" id="asistencia-check">
+                  Confirmo que asistí a esta clase / sesión.
+                </label>
+                <button type="submit">Guardar asistencia</button>
+              </form>
+              <p id="estado-mi-asistencia"></p>
+
+              <h3>Chat con el docente (tarea)</h3>
+              <div id="chat-tarea" class="chat-box"></div>
+              <div class="chat-input">
+                <input type="text" id="chat-tarea-input" placeholder="Escribe un mensaje para tu docente...">
+                <button type="button" onclick="enviarMensajeTarea()">Enviar</button>
+              </div>
+            </div>
+
+            <!-- PROFESOR -->
+            <div id="detalle-profesor" style="display:none;">
+              <h3>Entregas de estudiantes</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Cédula</th>
+                    <th>Entrega</th>
+                    <th>Fecha</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-entregas-tarea"></tbody>
+              </table>
+
+              <h3>Asistencias de estudiantes</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Cédula</th>
+                    <th>Asistió</th>
+                    <th>Fecha</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-asistencias-tarea"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: chat IA por materia -->
+        <div>
+          <div class="card">
+            <h2>Asistente IA – <span id="ia-materia-label"></span></h2>
+            <small>Chat general de la materia, conectado a tu flujo de IA en n8n.</small>
+            <div id="chat-ia-materia" class="chat-box">
+              <p><strong>Bot:</strong> Hola, soy tu asistente. Pregunta por tus tareas, riesgos o recordatorios en esta materia.</p>
+            </div>
+            <div class="chat-input">
+              <input type="text" id="input-ia-materia"
+                     placeholder="Escribe tu pregunta para la IA...">
+              <button type="button" onclick="enviarMensajeIA()">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<footer>
+  Módulo de tareas tipo Classroom – Universe Unesum.
+</footer>
+
+<script src="auth.js"></script>
+<script src="app-tareas.js"></script>
+<script src="iavoy.js"></script>
+</body>
+</html>

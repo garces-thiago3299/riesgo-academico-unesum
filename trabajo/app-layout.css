@@ -1,0 +1,200 @@
+/* Barra superior */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a237e;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.topbar a {
+    color: #bbdefb;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.topbar a:hover {
+    text-decoration: underline;
+}
+
+/* Layout principal con perfil lateral */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 20px;
+}
+
+/* Panel de materias */
+.layout-materias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.materia {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Badges y encabezado de materia */
+.materia-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.badge-materia {
+    font-size: 13px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: #e8eaf6;
+    color: #283593;
+}
+
+/* Perfil lateral */
+.profile-card {
+    background: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    text-align: center;
+    font-size: 13px;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #757575;
+}
+
+.profile-upload-btn {
+    margin: 6px 0 10px;
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 12px;
+    border: none;
+    background: #1976d2;
+    color: #fff;
+    cursor: pointer;
+}
+
+.profile-upload-btn:hover {
+    background: #0d47a1;
+}
+
+.profile-name {
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.profile-line {
+    margin: 2px 0;
+}
+
+.profile-career {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Layout de contenido + chat IA */
+.layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Semáforo y dashboard (si se usa) */
+.risk-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    color: #fff;
+}
+.risk-alto { background: #d32f2f; }
+.risk-medio { background: #f9a825; }
+.risk-bajo { background: #388e3c; }
+
+.semaforo {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    padding: 8px;
+    border-radius: 8px;
+    background: #212121;
+    gap: 6px;
+}
+
+.luz {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #555;
+    margin: 0 auto;
+}
+
+.luz.activa.roja { background: #e53935; }
+.luz.activa.amarilla { background: #fdd835; }
+.luz.activa.verde { background: #43a047; }
+
+.semaforo-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.sugerencia {
+    font-size: 13px;
+    color: #333;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.kpi {
+    background: #f0f2ff;
+    border-radius: 6px;
+    padding: 8px;
+    text-align: center;
+}
+
+.kpi span { display: block; }
+
+.kpi .label {
+    font-size: 11px;
+    color: #555;
+}
+
+.kpi .value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #283593;
+}
